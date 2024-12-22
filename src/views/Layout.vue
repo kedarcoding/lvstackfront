@@ -28,20 +28,20 @@
     <!-- Navigation Links -->
     <nav class="hidden md:flex space-x-8">
       <ul class="flex text-lg text-blue-500 space-x-8">
-            <li>
-              <router-link to="/" class="hover:text-voilets-700">Home</router-link>
+            <li class="mx-1">
+              <router-link to="/" class="hover:text-blue-700 transition duration-300 hover:bg-white p-0.5 hover:p-0.5" :class="{ 'text-blue-500 bg-white p-0.5 font-bold': $route.path === '/' }">Home</router-link>
             </li>
-            <li>
-              <router-link to="/about" class="hover:ext-blue-700">About</router-link>
+            <li class="mx-1">
+              <router-link to="/about" class="hover:text-blue-700 transition duration-300 hover:bg-white p-0.5 hover:p-0.5" :class="{ 'text-blue-500 bg-white p-0.5 font-bold': $route.path === '/about' }">About</router-link>
             </li>
-            <li v-if="isAuthenticated">
-              <router-link to="/profile" class="hover:text-gray-200">Profile</router-link>
+            <li class="mx-1" v-if="isAuthenticated">
+              <router-link to="/profile" class="hover:text-blue-700 transition duration-300 hover:bg-white p-0.5 hover:p-0.5" :class="{ 'text-blue-500 bg-white p-0.5 font-bold': $route.path === '/profile' }">Profile</router-link>
             </li>
-            <li v-if="!isAuthenticated">
-              <router-link to="/login" class="hover:text-gray-200">Login</router-link>
+            <li class="mx-1" v-if="!isAuthenticated">
+              <router-link to="/login" class="hover:text-blue-700 transition duration-300 hover:bg-white p-0.5 hover:p-0.5">Login</router-link>
             </li>
-            <li v-else>
-              <button type="button"  @click="handleLogout" class="hover:text-gray-200">Logout</button>
+            <li class="mx-1" v-else>
+              <button type="button" class="hover:text-blue-700 transition duration-300 hover:bg-white p-0.5 hover:p-0.5"  @click="handleLogout">Logout</button>
             </li>
           </ul>
     </nav>
@@ -104,7 +104,7 @@ export default {
     const isLoggedOut = ref(false);
 
     // Computed property to check if the user is authenticated
-    const isAuthenticated = computed(() => {
+    const isAuthenticated = computed(() => { 
       return !!userStore.token;
     });
 
